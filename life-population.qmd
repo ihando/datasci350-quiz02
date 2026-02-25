@@ -1,0 +1,35 @@
+---
+title: "Life Expectancy and Population"
+---
+
+This page analyzes the relationship between life expectancy and population.
+
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("gapminder.csv")
+
+plt.figure()
+plt.scatter(df["population_millions"], df["life_expectancy"])
+plt.xlabel("Population (millions)")
+plt.ylabel("Life Expectancy")
+plt.title("Life Expectancy vs Population (All Years)")
+plt.show()
+
+# Trend over time: average population and life expectancy by year
+yearly = df.groupby("year")[["population_millions","life_expectancy"]].mean().reset_index()
+
+plt.figure()
+plt.plot(yearly["year"], yearly["life_expectancy"])
+plt.xlabel("Year")
+plt.ylabel("Average Life Expectancy")
+plt.title("Average Life Expectancy Over Time")
+plt.show()
+
+plt.figure()
+plt.plot(yearly["year"], yearly["population_millions"])
+plt.xlabel("Year")
+plt.ylabel("Average Population (millions)")
+plt.title("Average Population Over Time")
+plt.show()

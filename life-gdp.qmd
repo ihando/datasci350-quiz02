@@ -1,0 +1,37 @@
+---
+title: "Life Expectancy and GDP per Capita"
+---
+
+This page shows how life expectancy and GDP per capita change over time across countries.
+
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("gapminder.csv")
+
+plt.figure()
+plt.scatter(df["gdp_per_capita"], df["life_expectancy"])
+plt.xscale("log")
+plt.xlabel("GDP per Capita (log scale)")
+plt.ylabel("Life Expectancy")
+plt.title("Life Expectancy vs GDP per Capita (All Years)")
+plt.show()
+
+# Relationship over time (average across countries each year)
+yearly = df.groupby("year")[["gdp_per_capita","life_expectancy"]].mean().reset_index()
+
+plt.figure()
+plt.plot(yearly["year"], yearly["life_expectancy"])
+plt.xlabel("Year")
+plt.ylabel("Average Life Expectancy")
+plt.title("Average Life Expectancy Over Time")
+plt.show()
+
+plt.figure()
+plt.plot(yearly["year"], yearly["gdp_per_capita"])
+plt.yscale("log")
+plt.xlabel("Year")
+plt.ylabel("Average GDP per Capita (log scale)")
+plt.title("Average GDP per Capita Over Time")
+plt.show()

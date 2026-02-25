@@ -1,0 +1,11 @@
+---
+title: "Gapminder Home"
+---
+
+Welcome! This site uses the Gapminder dataset to explore how life expectancy relates to GDP per capita and population over time.
+
+## Pages
+
+- [Life Expectancy and GDP per Capita](life-gdp.qmd)
+- [Life Expectancy and Population](life-population.qmd)
+- [Country Analysis](country.qmd)
