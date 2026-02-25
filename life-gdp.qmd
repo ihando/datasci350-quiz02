@@ -17,7 +17,8 @@ plt.xlabel("GDP per Capita (log scale)")
 plt.ylabel("Life Expectancy")
 plt.title("Life Expectancy vs GDP per Capita (All Years)")
 plt.show()
-
+```
+```{python}
 # Relationship over time (average across countries each year)
 yearly = df.groupby("year")[["gdp_per_capita","life_expectancy"]].mean().reset_index()
 
@@ -35,3 +36,4 @@ plt.xlabel("Year")
 plt.ylabel("Average GDP per Capita (log scale)")
 plt.title("Average GDP per Capita Over Time")
 plt.show()
+```

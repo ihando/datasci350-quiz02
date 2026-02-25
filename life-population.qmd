@@ -16,7 +16,9 @@ plt.xlabel("Population (millions)")
 plt.ylabel("Life Expectancy")
 plt.title("Life Expectancy vs Population (All Years)")
 plt.show()
+```
 
+```{python}
 # Trend over time: average population and life expectancy by year
 yearly = df.groupby("year")[["population_millions","life_expectancy"]].mean().reset_index()
 
@@ -33,3 +35,4 @@ plt.xlabel("Year")
 plt.ylabel("Average Population (millions)")
 plt.title("Average Population Over Time")
 plt.show()
+```
